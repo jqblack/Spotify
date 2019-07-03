@@ -11,6 +11,9 @@ import { NavbarComponent } from './componentes/shared/navbar/navbar.component';
 import{APP_ROUTING} from "./app.routes";
 import {SpotifyservicesService} from "./servicios/spotifyservices.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { NoImagePipe } from './pipe/no-image.pipe';
+import { TarjetasComponent } from './componentes/shared/tarjetas/tarjetas.component';
+import { LoadingComponent } from './componentes/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     HomeComponent,
     SearchComponent,
     ArtistaComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoImagePipe,
+    TarjetasComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

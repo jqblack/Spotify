@@ -11,10 +11,15 @@ export class HomeComponent {
   nuevasCanciones:any[] = [];
 
   constructor(private servicios: SpotifyservicesService) {
+
+    this.loading = true;
+
     this.servicios.getNewReleases()
       .subscribe((data:any) => {
-      console.log(data);
-      this.nuevasCanciones = data.albums.items;
+      this.nuevasCanciones = data;
     });
+    this.loading = false;
   }
+
+  loading : boolean ;
 }
