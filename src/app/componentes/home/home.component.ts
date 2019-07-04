@@ -9,6 +9,8 @@ import {SpotifyservicesService} from "../../servicios/spotifyservices.service";
 export class HomeComponent {
 
   nuevasCanciones:any[] = [];
+  error : boolean = false;
+  errorMesaje : String;
 
   constructor(private servicios: SpotifyservicesService) {
 
@@ -16,9 +18,14 @@ export class HomeComponent {
 
     this.servicios.getNewReleases()
       .subscribe((data:any) => {
-      this.nuevasCanciones = data;
-    });
-    this.loading = false;
+        this.nuevasCanciones = data;
+        this.loading = false;
+      },(errorServicio) => {
+        this.loading = false;
+      this.error = true;
+
+      this.errorMesaje = errorServicio["error"]["error"]["message"]
+      });
   }
 
   loading : boolean ;
